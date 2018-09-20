@@ -1,0 +1,48 @@
+<% include header.ejs %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 header">
+      <div class="row">
+        <div class="col-sm-6">
+          <span class="head">Chatboard</span>
+        </div>
+        <div class="col-sm-6">
+          <button id='logout' class="btn btn-danger pull-right">Logout</button>
+          <span class="pull-right user">User Id : <%= username %></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2 full-height" id='user_list'>
+      <div class="row">
+        <div class="col-sm-12 active_users text-center">
+          <span class="head">Users</span>
+        </div>
+        <div class="users col-sm-12"></div>
+      </div>
+    </div>
+    <div class="col-sm-10 full-height" id='chatboard'>
+      <div class="row">
+        <div class="col-sm-12 active_users user_chat hidden" data-id='' id=''></div>
+      </div>
+      <div id="" class="chat_div hidden">
+        <div class="chat">
+          <ul id='chat_ul'></ul>
+        </div>
+      </div>
+      <div id="" class="row hidden chatboard_div">
+        <input id="message" class="pointer" autocomplete="off" />
+        <button type="button" id="send_msg" data-id=''>Send</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(() => {
+    main_obj.socketEvents();
+    main_obj.logout();
+  });
+</script>
+
+<% include footer.ejs %>
